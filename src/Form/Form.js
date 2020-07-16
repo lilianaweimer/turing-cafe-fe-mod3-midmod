@@ -15,10 +15,21 @@ class Form extends React.Component {
         this.setState({ [event.target.name]: event.target.value })
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault()
+        let reservation = {
+            id: Date.now(),
+            name: this.state.name,
+            date: this.state.date,
+            time: this.state.time,
+            number: Number(this.state.number)
+        }
+        this.props.addReservation(reservation)
+    }
+
     render() {
-        console.log(this.state);
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={(event) => this.handleSubmit(event)}>
                 <input 
                     type='text' 
                     placeholder='Name' 
