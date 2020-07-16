@@ -8,6 +8,8 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-// describe('App', () => {
-//   it('should render a form and reservations')
-// })
+describe('App', () => {
+  it('should be able to make a reservation', () => {
+    
+  })
+})
