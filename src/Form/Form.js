@@ -2,12 +2,12 @@ import React from 'react';
 
 class Form extends React.Component {
     constructor() {
-        super()
+        super();
         this.state = {
-            name: null,
-            date: null,
-            time: null,
-            number: null,
+            name: '',
+            date: '',
+            time: '',
+            number: '',
         }
     }
 
@@ -16,12 +16,37 @@ class Form extends React.Component {
     }
 
     render() {
+        console.log(this.state);
         return (
             <form onSubmit={this.handleSubmit}>
-                <input type='text' placeholder='Name' value={this.state.name} name='name' onChange={this.handleChange}/>
-                <input type='text' placeholder='Date (mm/dd)' value={this.state.date} name='date' onChange={this.handleChange}/>
-                <input type='text' placeholder='Time' value={this.state.time} name='time' onChange={this.handleChange}/>
-                <input type='text' placeholder='Number of Guests' value={this.state.number} name='number' onChange={this.handleChange}/>
+                <input 
+                    type='text' 
+                    placeholder='Name' 
+                    name='name'
+                    onChange={(event) => this.handleChange(event)}
+                    value={this.state.name}  
+                />
+                <input 
+                    type='text' 
+                    placeholder='Date (mm/dd)'
+                    name='date'  
+                    onChange={(event) => this.handleChange(event)} 
+                    value={this.state.date}
+                    />
+                <input 
+                    type='text' 
+                    placeholder='Time'
+                    name='time'  
+                    onChange={(event) => this.handleChange(event)} 
+                    value={this.state.time}
+                    />
+                <input 
+                    type='text' 
+                    placeholder='Number of Guests'
+                    name='number'  
+                    onChange={(event) => this.handleChange(event)} 
+                    value={this.state.number}
+                    />
                 <button>Make Reservation</button>
             </form>
         )
