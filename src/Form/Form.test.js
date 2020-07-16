@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Form from './Form';
 
 import '@testing-library/jest-dom';
-import { render, fireEvent, waitFor, getAllByDisplayValue, getByDisplayValue } from '@testing-library/react';
+import { render, fireEvent, waitFor, getByDisplayValue } from '@testing-library/react';
 
 describe('Form', () => {
 
