@@ -40,8 +40,18 @@ class App extends Component {
     })
       .then(response => response.json())
       .then(data => this.fetchReservations())
+      .catch(err => console.error(err)) 
+  }
+
+  deleteReservation = (id) => {
+    fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/JSON'
+      }
+    })
+      .then(() => this.fetchReservations())
       .catch(err => console.error(err))
-      
   }
 
   render() {
@@ -52,7 +62,7 @@ class App extends Component {
           <Form addReservation={this.addReservation}/>
         </div>
         <div className='resy-container'>
-          <Reservations reservations={this.state.reservations}/>
+          <Reservations reservations={this.state.reservations} deleteReservation={this.deleteReservation}/>
         </div>
       </div>
     )

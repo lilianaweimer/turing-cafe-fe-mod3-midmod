@@ -8,6 +8,7 @@ function Reservations(props) {
                 <p>{reservation.date}</p>
                 <p>{reservation.time}</p>
                 <p>Guests: {reservation.number}</p>
+                <button onClick={() => props.deleteReservation(reservation.id)}>Cancel Reservation</button>
             </article>)
         })
     )
