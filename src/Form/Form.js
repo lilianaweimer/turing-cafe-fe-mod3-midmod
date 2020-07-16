@@ -29,7 +29,7 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form onSubmit={(event) => this.handleSubmit(event)}>
+            <form className='form' onSubmit={(event) => this.handleSubmit(event)}>
                 <input 
                     type='text' 
                     placeholder='Name' 
