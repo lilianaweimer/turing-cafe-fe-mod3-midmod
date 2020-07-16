@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import Reservations from '../Reservations/Reservations';
 
 class App extends Component {
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/reservations')
+      .then(response => console.log(response.json()))
+  }
+
   render() {
     return (
       <div className="App">
@@ -10,7 +17,7 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
-          
+          <Reservations />
         </div>
       </div>
     )
