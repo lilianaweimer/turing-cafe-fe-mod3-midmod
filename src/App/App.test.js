@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import '@testing-library/jest-dom';
-import { render, fireEvent, waitFor, getByDisplayValue } from '@testing-library/react';
+import { render, fireEvent, } from '@testing-library/react';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

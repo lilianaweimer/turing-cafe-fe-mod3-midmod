@@ -13,16 +13,35 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.fetchReservations();
+  }
+
+  fetchReservations = () => {
     fetch('http://localhost:3001/api/v1/reservations')
-      .then(response => response.json())
-      .then(data => this.setState({ 
-        reservations: data,
-        loading: false, 
-      }))
+    .then(response => response.json())
+    .then(data => this.setState({ 
+      reservations: data,
+      loading: false, 
+    }))
   }
 
   addReservation = (data) => {
-    this.setState({ reservations: [...this.state.reservations, data ]})
+    fetch('http://localhost:3001/api/v1/reservations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+      body: JSON.stringify({
+        name: data.name,
+        date: data.date,
+        time: data.time,
+        number: data.number,
+      })
+    })
+      .then(response => response.json())
+      .then(data => this.fetchReservations())
+      .catch(err => console.error(err))
+      
   }
 
   render() {

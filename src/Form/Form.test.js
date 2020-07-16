@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Form from './Form';
 
 import '@testing-library/jest-dom';
@@ -25,7 +24,7 @@ describe('Form', () => {
     });
 
     it('should be able to fill out form inputs', async () => {
-        const { getByPlaceholderText, getByDisplayValue, debug } = render(<Form />);
+        const { getByPlaceholderText } = render(<Form />);
 
         const nameInput = getByPlaceholderText('Name');
         const dateInput = getByPlaceholderText('Date (mm/dd)');
