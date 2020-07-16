@@ -3,10 +3,21 @@ import './App.css';
 import Reservations from '../Reservations/Reservations';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      reservations: [],
+      loading: true,
+    }
+  }
 
   componentDidMount() {
     fetch('http://localhost:3001/api/v1/reservations')
-      .then(response => console.log(response.json()))
+      .then(response => response.json())
+      .then(data => this.setState({ 
+        reservations: data,
+        loading: false, 
+      }))
   }
 
   render() {
